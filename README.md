@@ -31,9 +31,23 @@ Navigate to the landing page and enter your OpenAI API key along with your GitHu
 * AI-Enhanced Query Handling: Uses OpenAI's GPT models for understanding user queries and generating precise responses, based on the context retrieved from documents.
 * Scalable and Robust Storage: Employs Astra DB for the backend storage, offering robust, scalable storage solutions that can handle large volumes of data without compromising on performance.
 
-Technologies Used
+#### Technologies Used
 * Astra DB: A powerful, serverless NoSQL database provided by DataStax, designed for modern applications that require a scalable and flexible storage solution. It plays a crucial role in storing vectors generated from document contents efficiently.
 * cassio: Facilitates easy interaction with Cassandra databases, including Astra DB, simplifying operations like connection and query execution.
 * llama-index: A versatile library for creating RAGs on the fly.
 * OpenAI's GPT Models: For natural language processing, understanding user queries, and generating relevant responses, enhancing the document retrieval process.
+
+## Backend
+### Features
+* GitHub Commit Extraction: Fetches commit data from specified GitHub repositories, leveraging GitHub's API.
+* PDF Generation: Formats and compiles commit data into a well-structured PDF document, making it easy to review and share.
+* Vector Search with llama-index: Utilizes vector search to facilitate retrieval of relevant document segments based on user queries, enhancing the application's interactivity and utility.
+* Deployment on Render: Demonstrates how to package and deploy a Flask-based backend on Render, a cloud service platform.
+  
+### Technologies
+* Flask: For creating the web server and handling API requests.
+* llama-index: For indexing and searching vectors derived from document content.
+* Cassandra (cassio): Utilized as a vector store for llama-index.
+* OpenAI's GPT Models: For processing natural language queries and generating coherent, contextually relevant responses.
+* ReportLab: For generating PDF documents from extracted commit data.
 

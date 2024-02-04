@@ -1,5 +1,16 @@
 # Rag-a-thon-LLM
 
+## About
+
+This GenAI powered app leveraging Vector DBs and RAG modelling helps end users understand Git commits without having to navigate through command line interface. It provides constructive details, key performance indicators about the commits made by the users/contributor. 
+
+## Uniqueness
+
+There are other similar applications that have something similar but mainly dashboards and analytics on the number of commits, additions, delete etc. However, we have access to additonal details like comments, timing instances, actions, messages. Our project is capable of communicating with the chat interface and answer open-ended questions. 
+
+#### Usage
+Navigate to the landing page and enter your OpenAI API key along with your GitHub username and repository name. Click on "Proceed" to move to the chatbot interface. In the chatbot interface, type your message in the input field and press "Send" to communicate with the AI. 
+
 ## Frontend
 
 ### Features
@@ -20,10 +31,9 @@
 * Axios: Used for making HTTP requests to external APIs.
 * React Router Dom: Manages navigation between the landing page and the chatbot interface.
 
-#### Usage
-Navigate to the landing page and enter your OpenAI API key along with your GitHub username and repository name. Click on "Proceed" to move to the chatbot interface. In the chatbot interface, type your message in the input field and press "Send" to communicate with the AI.
 
-## Generative AI
+
+## Generative AI RAG Model
 
 ### Features
 * Document Processing: Processes documents to extract and vectorize content, preparing it for efficient indexing and retrieval.
@@ -33,8 +43,8 @@ Navigate to the landing page and enter your OpenAI API key along with your GitHu
 
 #### Technologies Used
 * Astra DB: A powerful, serverless NoSQL database provided by DataStax, designed for modern applications that require a scalable and flexible storage solution. It plays a crucial role in storing vectors generated from document contents efficiently.
-* cassio: Facilitates easy interaction with Cassandra databases, including Astra DB, simplifying operations like connection and query execution.
-* llama-index: A versatile library for creating RAGs on the fly.
+* Llama-index: A versatile library for creating RAGs on the fly.
+* Cassio: Facilitates easy interaction with Cassandra databases, including Astra DB, simplifying operations like connection and query execution.
 * OpenAI's GPT Models: For natural language processing, understanding user queries, and generating relevant responses, enhancing the document retrieval process.
 
 ## Backend
@@ -42,12 +52,8 @@ Navigate to the landing page and enter your OpenAI API key along with your GitHu
 * GitHub Commit Extraction: Fetches commit data from specified GitHub repositories, leveraging GitHub's API.
 * PDF Generation: Formats and compiles commit data into a well-structured PDF document, making it easy to review and share.
 * Vector Search with llama-index: Utilizes vector search to facilitate retrieval of relevant document segments based on user queries, enhancing the application's interactivity and utility.
-* Deployment on Render: Demonstrates how to package and deploy a Flask-based backend on Render, a cloud service platform.
   
 ### Technologies
 * Flask: For creating the web server and handling API requests.
-* llama-index: For indexing and searching vectors derived from document content.
-* Cassandra (cassio): Utilized as a vector store for llama-index.
-* OpenAI's GPT Models: For processing natural language queries and generating coherent, contextually relevant responses.
 * ReportLab: For generating PDF documents from extracted commit data.
 

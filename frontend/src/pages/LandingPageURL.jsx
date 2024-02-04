@@ -8,8 +8,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const [buttonState, setButtonState] = useState('idle');
   const [openAIKey, setOpenAIKey] = useState('');
-  const [githubUsername, setGithubUsername] = useState('');
-  const [githubRepoName, setGithubRepoName] = useState('');
+  const [githubURL, setGithubURL] = useState('');
 
   const handleInputChange = (e, setStateFunction) => {
     setStateFunction(e.target.value);
@@ -28,14 +27,13 @@ const LandingPage = () => {
       
       // Navigate to the '/chatbot' route after a delay of 5000 milliseconds (5 seconds)
       const requestBody = {
-        username: githubUsername,
-        openai_key: openAIKey,
-        repo_name: githubRepoName
+        url: githubURL,
+        openai_key: openAIKey
       };
       console.log(requestBody)
   
       // Make the fetch call to the API
-      const response = await fetch('http://localhost:5000/fetch_commits', {
+      const response = await fetch('http://localhost:5000/fetch_commits_url', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -77,33 +75,18 @@ const LandingPage = () => {
             value={openAIKey}
             onChange={e => handleInputChange(e, setOpenAIKey)} 
             style={{ fontSize: 16 }}
-            required
           />
         </div>
 
         <div className="flex-container">
-          <div className="title">Github Username</div>
+          <div className="title">Github URL</div>
           <input
-            id="my-link"
-            placeholder="Enter Github Username"
+            id="github-url"
+            placeholder="Enter Github URL"
             className="input"
-            value={githubUsername}
-            onChange={e => handleInputChange(e, setGithubUsername)} 
+            value={githubURL}
+            onChange={e => handleInputChange(e, setGithubURL)} 
             style={{ fontSize: 16 }}
-            required
-          />
-        </div>
-
-        <div className="flex-container">
-          <div className="title">Github Repo Name</div>
-          <input
-            id="my-repo-name"
-            placeholder="Enter Github Repo Name"
-            className="input"
-            value={githubRepoName}
-            onChange={e => handleInputChange(e, setGithubRepoName)} 
-            style={{ fontSize: 16 }} 
-            required
           />
         </div>
 
@@ -117,16 +100,17 @@ const LandingPage = () => {
         letterSpacing: '2px', // Adds space between characters
         // ... (other styles)
         }}
-        onClick={() => navigate("/url")}
+        onClick={() => navigate("/")}
         >
-  Use GitHub URL
-</div>
+          Use Username and Reponame
+        </div>
 
         <div className={`button ${buttonState}`} onClick={buttonState === 'idle' ? handleNavigate : null}>
           <div className="text">
             {buttonState === 'idle' ? 'Proceed' : buttonState === 'loading' ? 'Loading...' : ''}
           </div>
         </div>
+
         
       </div>
     </div>
